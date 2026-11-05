@@ -1,0 +1,40 @@
+@RecipeAPI_HostAddress = http://localhost:5110
+
+GET {{RecipeAPI_HostAddress}}/api/recipes/
+Accept: application/json
+
+###
+
+GET {{RecipeAPI_HostAddress}}/api/recipes/1
+Accept: application/json
+
+###
+
+POST {{RecipeAPI_HostAddress}}/api/recipes/
+Content-Type: application/json
+
+{
+  "name": "Pancakes",
+  "category": "Breakfast",
+  "description": "Fluffy weekend pancakes",
+  "ingredients": "flour,eggs,milk,sugar,baking powder"
+}
+
+###
+
+PUT {{RecipeAPI_HostAddress}}/api/recipes/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Blueberry Pancakes",
+  "category": "Breakfast",
+  "description": "Fluffy weekend pancakes",
+  "ingredients": "flour,eggs,milk,sugar,baking powder,blueberries"
+}
+
+###
+
+DELETE {{RecipeAPI_HostAddress}}/api/recipes/1
+
+###
