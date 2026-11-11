@@ -18,9 +18,23 @@ namespace RecipeAPI.Controllers
 
         // GET: api/recipes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes()
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes(
+            [FromQuery] string? name,
+            [FromQuery] string? category,
+            [FromQuery] string? ingredient)
         {
-            return await _context.Recipes.ToListAsync();
+            IQueryable<Recipe> query = _context.Recipes;
+
+            if (!string.IsNullOrWhiteSpace(name))
+                query = query.Where(r => r.Name.Contains(name));
+
+            if (!string.IsNullOrWhiteSpace(category))
+                query = query.Where(r => r.Category.Contains(category));
+
+            if (!string.IsNullOrWhiteSpace(ingredient))
+                query = query.Where(r => r.Ingredients.Contains(ingredient));
+
+            return await query.ToListAsync();
         }
 
         // GET: api/recipes/5

@@ -5,7 +5,7 @@ Accept: application/json
 
 ###
 
-GET {{RecipeAPI_HostAddress}}/api/recipes/1
+GET {{RecipeAPI_HostAddress}}/api/recipes/{id}
 Accept: application/json
 
 ###
@@ -22,19 +22,19 @@ Content-Type: application/json
 
 ###
 
-PUT {{RecipeAPI_HostAddress}}/api/recipes/1
-Content-Type: application/json
+# PUT {{RecipeAPI_HostAddress}}/api/recipes/1
+# Content-Type: application/json
 
-{
-  "id": 1,
-  "name": "Blueberry Pancakes",
-  "category": "Breakfast",
-  "description": "Fluffy weekend pancakes",
-  "ingredients": "flour,eggs,milk,sugar,baking powder,blueberries"
-}
+# {
+#   "id": 1,
+#   "name": "Blueberry Pancakes",
+#   "category": "Breakfast",
+#   "description": "Fluffy weekend pancakes",
+#   "ingredients": "flour,eggs,milk,sugar,baking powder,blueberries"
+# }
 
 ###
 
-DELETE {{RecipeAPI_HostAddress}}/api/recipes/1
+DELETE {{RecipeAPI_HostAddress}}/api/recipes/{id}
 
 ###
